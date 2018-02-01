@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Anton'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+<script type="text/javascript">
+
+    var cronometro;
+
+    function stop() {
+      clearInterval(cronometro);
+    }
+
+    function carga(){
+
+        contador_ms =0;
+        contador_s =0;
+        contador_m =0;
+        s = document.getElementById("segundos");
+        m = document.getElementById("minutos");
+        ms = document.getElementById("milisegundos");
+
+        cronometro = setInterval(
+            function(){
+                if(contador_ms==60){
+                    contador_ms=0;
+                    contador_s++;
+                    s.innerHTML = contador_s;
+                    if (contador_s==60){
+                        contador_s=0;
+                        contador_m++;
+                        m.innerHTML = contador_m;
+                        if(contador_m==60){
+                            contador_m=0;
+                            stop();
+                        }
+                    }
+                }
+                ms.innerHTML = contador_ms;
+                contador_ms++;
+            },17.5);
+    }
+
+/*    var minutos = m;
+    var segundos = s;
+    var milisegundos = ms;
+
+    document.getElementById("resultado").innerHTML = minutos+':'+segundos+':'+milisegundos;*/
+
+</script>
+
+    <script src="js/index.js"></script>
+
+
+</head>
+
+<body onload="carga()">
+<br>
+<center><p class="reloj"><span id="minutos">0</span>:<span id="segundos">0</span>:<span id="milisegundos">0</span></p></center>
+
+  <div class="wrap">
+
+ <div class="game"></div>
+
+ <div class="modal-overlay">
+  <div class="modal">
+   <h2 class="winner">Lo lograste!</h2>
+      <br>
+      <p class="message">Tu tiempo fue de:</p>
+      <div id="resultado"></div>
+      <div id="cronometro"></div>
+   <br><!-- <button class="restart">Play Again?</button> -->
+   <p class="message">Gracias por participar</p>
+		<p class="message">Fija tu pasión con <a href="http://xtremepower.mx/">XTREME</a></p>
+   <p class="share-text">Siguenos y mantente enterado de los concursos y ganadores!</p>
+
+      <ul class="social">
+    <li><a target="_blank" class="twitter" href="https://twitter.com/xtreme_gel"><span class="fa fa-twitter"></span></a></li>
+    <li><a target="_blank" class="facebook" href="https://www.facebook.com/XtremeProducts/"><span class="fa fa-facebook"></span></a></li>
+    <li><a target="_blank" class="google" href="https://www.instagram.com/xtremeproducts/"><span class="fa fa-instagram"></span></a></li>
+   </ul>
+  </div>
+ </div>
+ <footer>
+  <p class="disclaimer">© xtremepower.mx All Rights Reserved 2016 - Powered By MDM Marketing</p>
+ </footer>
+</div>
+<!-- End Wrap -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
